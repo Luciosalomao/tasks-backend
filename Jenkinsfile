@@ -12,7 +12,7 @@ pipeline {
             }            
             steps {
                 withSonarQubeEnv('SONAR_LOCAL') {
-                    bat "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqa_6ebd4f32a47c668b82dfb27586b09213ca956d16 -Dsonar.java.binaries=target"
+                    bat "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqa_6ebd4f32a47c668b82dfb27586b09213ca956d16 -Dsonar.java.binaries=target -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout default = 300sec"
                 }                
             }
         }
